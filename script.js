@@ -112,7 +112,11 @@ c('.menu-closer').addEventListener('click',() => {
 })
 
 function updateCart(){
-    c('.menu-openner span').innerHTML = cart.length;
+    if(cart.length > 0){
+        c('.menu-openner').style.display = "block";
+        c('.menu-openner span').innerHTML = cart.length;
+    }
+
 
     if(cart.length > 0){
         c('aside').classList.add('show');
@@ -169,5 +173,6 @@ function updateCart(){
     }else{
         c('aside').classList.remove('show');
         c('aside').style.left = '100vw';
+        c('.menu-openner').style.display = "none";
     }
 }
